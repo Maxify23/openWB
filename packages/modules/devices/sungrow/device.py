@@ -61,6 +61,8 @@ class Device(AbstractDevice):
                     for component in self.components:
                         if isinstance(component, inverter.SungrowInverter):
                             pv_power = component.update()
+                        else:
+                            pv_power = 0
                     for component in self.components:
                         if isinstance(component, counter.SungrowCounter):
                             component.update(pv_power)
